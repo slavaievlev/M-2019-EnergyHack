@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню заказчика</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script th:src="@{/js/contractor.js}"></script>-->
+</head>
+<body>
+<div>
+    <h2>Название</h2>
+    <label th:text="${responce.name}"></label>
+
+    <h2>Рейтинг</h2>
+    <label th:text="${responce.rating}"></label>
+
+    <h2>Отзывы</h2>
+    <tr th:each ="feedback : ${Feedbacks}">
+        <td th:utext="${feedback.name}"></td>
+        <td th:utext="${feedback.rating}"></td>
+        <td th:utext="${feedback.text}"></td>
+    </tr>
+
+    <button onclick="choose_сontractor()">Выбрать как подрядчика</button>
+    <!--// TODO переход в окно чата.-->
+
+    <button onclick="">Вернуться</button>
+</div>
+</body>
+</html>

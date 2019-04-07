@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Signin Template · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-iqcNtN3rj6Y1HX/R0a3zu3ngmbdwEa9qQGHdkXwSRoiE+Gj71p0UNDSm99LcXiXV" crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/auth.js}"></script>
+
+    <link rel="stylesheet" type="text/css"  th:href="@{/dist/css/signin.css}" />
+</head>
+<body class="text-center">
+    <form class="form-signin">
+        <img class="mb-4" src="../static/docs/4.3/assets/brand/logoSK2.jpg" alt="" width="102" height="102">
+        <h1 class="h3 mb-3 font-weight-normal">Пожалуйста, войдите</h1>
+        <input type="email" id="inputLogin" class="form-control" placeholder="Логин" autofocus>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Пароль">
+        <button class="btn btn-secondary my-1 my-sm-auto" onclick="signin()" type="submit">Войти</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v3.8.5">
+        <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lumen/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-iqcNtN3rj6Y1HX/R0a3zu3ngmbdwEa9qQGHdkXwSRoiE+Gj71p0UNDSm99LcXiXV"
+              crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <title>Tender</title>
+        <link th:href="@{/docs/4.3/dist/css/bootstrap.min.css}" rel="stylesheet"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <style>
+            .dropbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #f1f1f1
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .dropdown:hover .dropbtn {
+                background-color: #3e8e41;
+            }
+        </style>
+        <link th:href="@{/dist/css/starter-template.css}" rel="stylesheet">
+    </head>
+    <title>Тендер</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/tender.js}"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Меню</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav nav nav-pills mr-auto">
+            <div class="dropdown navbar-nav nav nav-pills">
+                <button class="dropbtn nav-link nav-item mr-auto"
+                        style="background-color: #007fbd;inline-size: 150px; block-size: 50px; position: absolute; margin-top: -10px; margin-left: 300px">
+                    Создать аккаунт
+                </button>
+                <div class="dropdown-content" style="position: absolute; margin-top: 17px; margin-left: 300px">
+                    <a href="/templates/admin/customer.html">Заказчик</a>
+                    <a href="/templates/admin/contractor.html">Подрядчик</a>
+                </div>
+            </div>
+
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/admin/all-contractors.html}">Подрядчики</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/templates/admin/all-customers.html">Заказчики</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/templates/admin/all-contracts.html">Тендеры</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/templates/admin/all-orders.html">Отклики</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Выход</button>
+        </form>
+    </div>
+</nav>
+
+
+<div class="form-group" style="margin-left: 35%; margin-top: 5%">
+    <div class="form-group">
+        <h2>Цена</h2>
+        <textarea class="form-control" style="inline-size: 320px" id="exampleTextarea6" rows="1" placeholder="Цена"
+                  th:text="${tender.pay}"></textarea>
+    </div>
+
+    <div class="form-group">
+        <h2>Место</h2>
+        <textarea class="form-control" style="inline-size: 320px" id="exampleTextarea7" rows="1" placeholder="Место"
+                  th:text="${tender.place}"></textarea>
+    </div>
+    <div class="form-group" >
+        <h2>Дата</h2>
+        <textarea class="form-control"  style="inline-size: 320px" id="exampleTextarea8" rows="1" placeholder="ДД.ММ.ГГГГ"
+                  th:text="${tender.date}"></textarea>
+    </div>
+
+    <div class="form-group" >
+        <h2>Логин заказчика</h2>
+        <textarea class="form-control"  style="inline-size: 320px" id="exampleTextarea9" rows="1" placeholder="Email"
+                  th:text="${tender.customer.login}"></textarea>
+    </div>
+
+    <div>
+        <button th:onclick="'addsubscribe(' + ${tender.id} + ')'">Оставить отклик</button>
+        <button>Вернуться назад</button>
+    </div>
+</div>
+</body>
+</html>

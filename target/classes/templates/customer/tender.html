@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню заказчика</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script th:src="@{/js/contractor.js}"></script>-->
+</head>
+<body>
+<div>
+    <h2>ТУ</h2>
+    Тут разместить все, что было в ТУ.
+</div>
+<div>
+    <h2>Инф1</h2>
+    <label th:text="${contractors.info}"></label>
+</div>
+<div>
+    <h2>Инф2</h2>
+    <label th:text="${contractors.info}"></label>
+</div>
+<div>
+    <h2>Инф3</h2>
+    <label th:text="${contractors.info}"></label>
+</div>
+
+<div>
+    <h2>Отклики на заявку</h2>
+    <tr th:each ="tender : ${tenders}">
+        <td th:utext="${tender.pay}"></td>
+        <td th:utext="${tender.date}"></td>
+        <td th:utext="${tender.place}"></td>
+        <button th:onclick="'about(' + ${tender.id} + ')'">Подробнее о заявке</button>
+    </tr>
+</div>
+</body>
+</html>

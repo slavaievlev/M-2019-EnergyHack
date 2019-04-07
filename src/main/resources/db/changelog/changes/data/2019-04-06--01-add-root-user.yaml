@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Slava Ievlev
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 0
+              - column:
+                  name: fio
+                  value: "root"
+              - column:
+                  name: login
+                  value: "root"
+              - column:
+                  name: password
+                  value: "12345"
+            tableName: usersp

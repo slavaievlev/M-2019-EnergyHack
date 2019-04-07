@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование заказчика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/customer.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lumen/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iqcNtN3rj6Y1HX/R0a3zu3ngmbdwEa9qQGHdkXwSRoiE+Gj71p0UNDSm99LcXiXV" crossorigin="anonymous">
+
+    <style>
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Меню</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <div class="dropdown navbar-nav nav nav-pills">
+                <button class="dropbtn nav-link nav-item mr-auto" style="background-color: #007fbd;inline-size: 150px; block-size: 50px; position: absolute; margin-top: -10px; margin-left: 300px">Создать аккаунт</button>
+                <div class="dropdown-content" style="position: absolute; margin-top: 17px; margin-left: 300px">
+                    <a href="#">Заказчик</a>
+                    <a href="#">Подрядчик</a>
+                </div>
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="all-contractors.html">Подядчики</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="all-customers.html">Заказчики</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="all-orders.html">Тендеры</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Отклики</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Выход</button>
+        </form>
+    </div>
+</nav>
+<h2 style="text-align: center">Редактирование заказчика</h2>
+<div>
+    <div class="form-group" style="display: inline-block; float: left; margin-top: 3%; margin-right: 12%; text-align: center">
+
+        <button>Найти заказчика</button>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control col-12" style="margin-left: 20%" id="exampleInputEmail1"
+                   aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control col-12" style="margin-left: 20%" id="exampleInputPassword1" placeholder="Password">
+        </div>
+
+        <div class="form-group" >
+            <label for="exampleTextarea1">ФИО</label>
+            <textarea class="form-control col-12" style="margin-left: 20%" size=200 id="exampleTextarea1" rows="1" placeholder="Введите ФИО"></textarea>
+        </div>
+
+        <div class="form-group" >
+            <label for="exampleTextarea2">Адрес</label>
+            <textarea class="form-control col-12" style="margin-left: 20%" size=200 id="exampleTextarea2" rows="1" placeholder="Введите адрес"></textarea>
+        </div>
+
+    </div>
+    <div class="form-group" style="display: inline-block; float: right; margin-right: 10%">
+        <div>
+            <h3>ПРОЧИЕ ДАННЫЕ</h3>
+        </div>
+        <div>
+            <h3>ТУ</h3>
+            <button>Добавить ТУ</button>
+
+        </div>
+
+        <div>
+            <fieldset class="form-group">
+                <legend>Что построить</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="" checked="">
+                        Линия
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="" checked="">
+                        Трансформатор
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="" checked="">
+                        Приборы
+                    </label>
+                </div>
+
+            </fieldset>
+
+            <div class="form-group" >
+                <label for="exampleTextarea3">Где построить</label>
+                <textarea class="form-control"  style="inline-size: 320px" id="exampleTextarea3" rows="1" placeholder="Введите место проведения работ"></textarea>
+            </div>
+
+            <div class="form-group" >
+                <label for="exampleTextarea5">Дата</label>
+                <textarea class="form-control"  style="inline-size: 320px" id="exampleTextarea5" rows="1" placeholder="ДД.ММ.ГГГГ"></textarea>
+            </div>
+
+            <div class="form-group" >
+                <label for="exampleTextarea6">Цена</label>
+                <textarea class="form-control"  style="inline-size: 320px" id="exampleTextarea6" rows="1" placeholder="Цена"></textarea>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="form-group" style="margin-top: 38%; margin-left: 37%">
+    <button onclick="update_customer()">Подтвердить</button>
+    <button>Отменить</button>
+</div>
+</body>
+</html>

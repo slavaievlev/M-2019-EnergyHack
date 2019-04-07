@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование подрядчика</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/contractor.js}"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-iqcNtN3rj6Y1HX/R0a3zu3ngmbdwEa9qQGHdkXwSRoiE+Gj71p0UNDSm99LcXiXV" crossorigin="anonymous">
+    <style>
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body style="text-align: center">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Меню</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <div class="dropdown navbar-nav nav nav-pills">
+                <button class="dropbtn nav-link nav-item mr-auto" style="background-color: #007fbd;inline-size: 150px; block-size: 50px; position: absolute; margin-top: -10px; margin-left: 300px">Создать аккаунт</button>
+                <div class="dropdown-content" style="position: absolute; margin-top: 17px; margin-left: 300px">
+                    <a href="#">Заказчик</a>
+                    <a href="#">Подрядчик</a>
+                </div>
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="all-contractors.html">Подядчики</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="all-customers.html">Заказчики</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="all-orders.html">Тендеры</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Отклики</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Выход</button>
+        </form>
+    </div>
+</nav>
+
+<div>
+    <div class="form-group" style="display: inline-block; float: left; margin-top: 3%; margin-right: 12%">
+
+        <h2>Редактирование подрядчика</h2>
+
+        <div class="form-group" >
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control col-7" style="margin-left: 20%"   id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control col-7" style="margin-left: 20%" id="exampleInputPassword1" placeholder="Password">
+        </div>
+
+        <div>
+            <h4>Наличие разрешений</h4>
+        </div>
+
+        <div class="form-group" style="text-align: center">
+            <label for="exampleInputFile" style="text-align: center">Исходный файл</label>
+            <input type="file" class="form-control-file" style="margin-left: 20%" id="exampleInputFile" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">Изменение данных о пользователе маркетплейса</small>
+        </div>
+
+    </div>
+
+    <div class="form-group" style="display: inline-block; float: right; margin-right: 15%; margin-top: 3%">
+        <div class="form-group">
+            <label for="exampleTextarea">Персонал + обучение</label>
+            <textarea class="form-control col-12" size=200 id="exampleTextarea" rows="4"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleTextarea1">Техника</label>
+            <textarea class="form-control col-12" size=200 id="exampleTextarea1" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleTextarea2">Опыт</label>
+            <textarea class="form-control col-12" size=200 id="exampleTextarea2" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleTextarea3">Отзывы</label>
+            <textarea class="form-control col-12" size=200 id="exampleTextarea3" rows="1"></textarea>
+        </div>
+
+
+    </div>
+</div>
+<div class="form-group" style="margin-top: 35%; margin-right: 11%">
+    <button onclick="update_contractor()">Подтвердить</button>
+    <button>Отменить</button>
+</div>
+</body>
+</html>
